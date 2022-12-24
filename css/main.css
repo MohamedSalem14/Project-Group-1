@@ -7,12 +7,14 @@ body{
     font-family: 'Times New Roman', Times, serif !important;
     font-size: large;
     position: relative;
+    background-color: #792483;
+
 }
 
 /* start styling navBar */
 
 #nav{
-    background-color: #792483;
+    background-color: #4b1052;
 }
 
 #nav .container{
@@ -37,6 +39,12 @@ body{
 /* end styling navBar */
 
 /* start styling create note */
+
+#noteContainer{
+    width: 80%;
+    margin: auto;
+}
+
 #showNote {
     position: absolute;
     top : 70px;
@@ -113,7 +121,29 @@ body{
     z-index: 5;
 }
 /* end styling create note */
+
 .noteCards {
     background-color: #1b021d;
+    margin: auto;
     color: white;
+    height: 310px;
+    display: flex;
+    flex-direction: column;
+}
+
+.addBtn{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    background-color:#792483;
+    width: 200px;
+    margin: auto;
+}
+
+.addBtn:hover{
+    background-color: #7f38b1;
+}
+
+.noteTextArea{
+    width: 100%;
 }

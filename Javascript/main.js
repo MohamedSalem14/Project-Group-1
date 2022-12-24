@@ -36,13 +36,15 @@ if(localStorage.getItem("notes") == null ){
 var noteCards = "";
 for(var i=0; i<notes.length; i++){
     noteCards += `
-    <div class="col-12 noteCards py-5 px-5 my-5">
-        <h2 id="noteHeader">${notes[i].title}
-        <a class="addBtn"><button class="saveBtn btn">Edit Note</button></a>
-        </h2>
-        <p id="noteBody">${notes[i].body}
-        <a class="addBtn"><button class="saveBtn btn ">Remove Note</button></a>
-        </p>
+    <div class="col-10 noteCards my-3 rounded">
+            <div class="d-flex justify-content-between">
+                <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
+            </div>
+            <div class="d-flex justify-content-between mx-2">
+                <textarea class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
+            </div>
+            <a class="addBtn btn mb-1 text-center ">Edit Note</a>
+            <a class="addBtn btn my-1 text-center">Remove Note</a>
     </div>
     `;
 }
@@ -56,13 +58,15 @@ function addNotes (){
     var noteCards = "";
     for(var i=0; i<notes.length; i++){
         noteCards += `
-        <div class="col-12 noteCards py-5 px-5 my-5">
-            <h2 id="noteHeader">${notes[i].title}
-                <a class="addBtn"><button class="saveBtn btn">Edit Note</button></a>
-            </h2>
-            <p id="noteBody">${notes[i].body}
-                <a class="addBtn"><button class="saveBtn btn ">Remove Note</button></a>
-            </p>
+        <div class="col-10 noteCards my-3 rounded">
+            <div class="d-flex justify-content-between">
+                <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
+            </div>
+            <div class="d-flex justify-content-between mx-2">
+                <textarea class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
+            </div>
+            <a class="addBtn btn mb-1 text-center ">Edit Note</a>
+            <a class="addBtn btn my-1 text-center">Remove Note</a>
         </div>
         `;
     }
