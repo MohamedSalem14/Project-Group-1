@@ -8,10 +8,9 @@ var userAlert = document.querySelector(".userAlert");
 var emailAlert = document.querySelector(".emailAlert");
 
 function checkPasswordPolicy() {
-  if (password.value !== password2.value) {
+  if (password.value !== password2.value){
     return false;
-  }
-  else if (username.value === "" && email.value !== "" && password.value !== "" && password2.value !== ""){
+  } else if (username.value === "" && email.value !== "" && password.value !== "" && password2.value !== ""){
     userAlert.classList.remove("d-none");
   } else if (username.value !== "" && email.value === "" && password.value !== "" && password2.value !== ""){
     emailAlert.classList.remove("d-none");
