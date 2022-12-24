@@ -7,7 +7,7 @@ var noteHeader = document.getElementById("noteHeader");
 var noteBody = document.getElementById("noteBody");
 var noteTitle = document.querySelector(".noteTitle");
 var noteDetails = document.querySelector(".noteDetails")
-
+var displayData = document.getElementById("displayData");
 var notes;
 
 
@@ -33,7 +33,22 @@ if(localStorage.getItem("notes") == null ){
 }else{
     notes = JSON.parse(localStorage.getItem("notes"));
 }
+var noteCards = "";
+for(var i=0; i<notes.length; i++){
+    noteCards += `
+    <div class="col-12 noteCards py-5 px-5 my-5">
+        <h2 id="noteHeader">${notes[i].title}
+        <a class="addBtn"><button class="saveBtn btn">Edit Note</button></a>
+        </h2>
+        <p id="noteBody">${notes[i].body}
+        <a class="addBtn"><button class="saveBtn btn ">Remove Note</button></a>
+        </p>
+      
+       
 
+    </div>
+    `;
+}
 function addNotes (){
     var note = {
         title : noteTitle.value,
@@ -41,25 +56,23 @@ function addNotes (){
     }
     notes.push(note);
     localStorage.setItem("notes" , JSON.stringify(notes));
-
-    var displayData = document.getElementById("displayData");
     var noteCards = "";
-
     for(var i=0; i<notes.length; i++){
         noteCards += `
-        <div class="col-12">
+        <div class="col-12 noteCards py-5 px-5 my-5 ">
             <h2 id="noteHeader">${notes[i].title}</h2>
             <p id="noteBody">${notes[i].body}</p>
         </div>
         `;
     }
     displayData.innerHTML = noteCards;
-    // noteHeader.textContent= JSON.parse(localStorage.getItem("notes"[title]));
-    // noteBody.textContent= JSON.parse(localStorage.getItem("notes"[body]));
     showNote.classList.add("d-none");
     showOverlay.classList.add("d-none");
+    noteTitle.value = "";
+    noteDetails.value = "";
 }
 
+displayData.innerHTML = noteCards;
 createNote.addEventListener("click", showNoteBox);
 closeIcon.addEventListener("click", closeNoteBox);
 document.addEventListener("keydown" ,closeByEscape);
