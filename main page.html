@@ -27,8 +27,13 @@
             <a id="createNote" class="addNotes"> <span><i class="fas fa-plus mx-1"></i></span> Create New Note</a>
         </div>
     </nav>
-    <section class="container">
-        No Notes Added
+    <section  class="container row ">
+        <div id="displayData" class="container">
+            <div class="noteCards col-12">
+                <h2 id="noteHeader"></h2>
+                <p id="noteBody"></p>
+            </div>
+        </div>
     </section>
     <section id="showNote" class="container p-2 d-none">
             <div class="mt-2 d-flex justify-content-between">
@@ -38,7 +43,7 @@
             <div class="my-3">
                 <textarea class="form-control noteDetails" rows="8" placeholder="Type here.."></textarea>
             </div>
-            <a href=""><button class="saveBtn btn py-2">Add Note</button></a>
+            <a class="addBtn"><button class="saveBtn btn py-2">Add Note</button></a>
     </section>
     <div class="overLay d-none"></div>
     <script src="javascript/main.js"></script>
