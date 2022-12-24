@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: large;
+}
+
+/* start styling navBar */
+
+#nav{
+    background-color: #792483;
+}
+
+#nav .container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#nav .container .userName{
+    text-decoration: none;
+    font-family: 'Sevillana', cursive;
+    font-size: 25px;
+    color: white;
+}
+
+#nav .container .addNotes{
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
+

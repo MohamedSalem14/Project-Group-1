@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: large;
+    background-color: #792483;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;
+    *//*align-items: center;
+    */margin: 50px 150px;
+    border: solid 2px black;
+    height: 550px;
+    border-radius:10px ;
+    -webkit-border-radius:10px ;
+    -moz-border-radius:10px ;
+    -ms-border-radius:10px ;
+    -o-border-radius:10px ;
+    background-color: black;
+}
+
+.noteTitle{
+    font-family: 'Sevillana', cursive;
+    font-size: 45px;
+    color: white;
+}
+
+.noteText{
+    height: 400px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.saveBtn{
+    width: 100px;
+    position: relative;
+    left: 950px;
+    background-color: #792483;
+    color: white;
+}
