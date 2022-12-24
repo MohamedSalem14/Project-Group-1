@@ -7,9 +7,9 @@ const list = document.getElementsByTagName("ul")[0];
 var userAlert = document.querySelector(".userAlert");
 var emailAlert = document.querySelector(".emailAlert");
 
-function checkPasswordPolicy() {
+function checkPasswordPolicy(){
   if (password.value !== password2.value){
-    return false;
+    return false
   } else if (username.value === "" && email.value !== "" && password.value !== "" && password2.value !== ""){
     userAlert.classList.remove("d-none");
   } else if (username.value !== "" && email.value === "" && password.value !== "" && password2.value !== ""){
