@@ -24,7 +24,7 @@
     <nav id="nav" class="py-2">
         <div class="container">
             <a class="userName">User Name</a>
-            <a class="addNotes" href="notes.html" target="_blank"> <span><i class="fas fa-plus mx-1"></i></span> Create New Note</a>
+            <a id="createNote" class="addNotes"> <span><i class="fas fa-plus mx-1"></i></span> Create New Note</a>
         </div>
     </nav>
     <section class="container">
@@ -33,7 +33,7 @@
     <section id="showNote" class="container p-2 d-none">
             <div class="mt-2 d-flex justify-content-between">
                 <input type="text" class="form-control noteTitle" placeholder="Add note title..">
-                <i class="closeIcon fas fa-times mx-3 mt-2"></i>
+                <span class="closeBox"><i class="closeIcon fas fa-times mx-3 mt-2"></i></span>
             </div>
             <div class="my-3">
                 <textarea class="form-control noteDetails" rows="8" placeholder="Type here.."></textarea>
@@ -41,5 +41,6 @@
             <a href=""><button class="saveBtn btn py-2">Add Note</button></a>
     </section>
     <div class="overLay d-none"></div>
+    <script src="javascript/main.js"></script>
 </body>
 </html>

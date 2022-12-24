@@ -27,6 +27,7 @@ body{
 }
 
 #nav .container .addNotes{
+    cursor: pointer;
     text-decoration: none;
     font-size: 16px;
     color: white;
