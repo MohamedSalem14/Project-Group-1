@@ -6,6 +6,7 @@
 body{
     font-family: 'Times New Roman', Times, serif !important;
     font-size: large;
+    position: relative;
 }
 
 /* start styling navBar */
@@ -37,7 +38,9 @@ body{
 
 /* start styling create note */
 #showNote {
-    position: relative;
+    position: absolute;
+    top : 70px;
+    left: 190px;
     display: flex;
     flex-direction: column;
     width: 1000px !important;
@@ -100,7 +103,7 @@ body{
 } 
 
 .overLay{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

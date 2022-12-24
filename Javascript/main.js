@@ -43,9 +43,6 @@ for(var i=0; i<notes.length; i++){
         <p id="noteBody">${notes[i].body}
         <a class="addBtn"><button class="saveBtn btn ">Remove Note</button></a>
         </p>
-      
-       
-
     </div>
     `;
 }
@@ -59,9 +56,13 @@ function addNotes (){
     var noteCards = "";
     for(var i=0; i<notes.length; i++){
         noteCards += `
-        <div class="col-12 noteCards py-5 px-5 my-5 ">
-            <h2 id="noteHeader">${notes[i].title}</h2>
-            <p id="noteBody">${notes[i].body}</p>
+        <div class="col-12 noteCards py-5 px-5 my-5">
+            <h2 id="noteHeader">${notes[i].title}
+                <a class="addBtn"><button class="saveBtn btn">Edit Note</button></a>
+            </h2>
+            <p id="noteBody">${notes[i].body}
+                <a class="addBtn"><button class="saveBtn btn ">Remove Note</button></a>
+            </p>
         </div>
         `;
     }
