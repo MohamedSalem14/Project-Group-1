@@ -43,7 +43,7 @@ for(var i=0; i<notes.length; i++){
             <div class="d-flex justify-content-between mx-2">
                 <textarea disabled class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
             </div>
-            <a id="editBtn" class="addBtn btn mb-1 text-center ">Edit Note</a>
+            <a class="editBtn addBtn btn mb-1 text-center ">Edit Note</a>
             <a class="addBtn btn my-1 text-center">Remove Note</a>
     </div>
     `;
@@ -65,7 +65,7 @@ function addNotes (){
             <div class="d-flex justify-content-between mx-2">
                 <textarea disabled class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
             </div>
-            <a class="addBtn btn mb-1 text-center ">Edit Note</a>
+            <a class="editBtn addBtn btn mb-1 text-center ">Edit Note</a>
             <a class="addBtn btn my-1 text-center">Remove Note</a>
         </div>
         `;
@@ -83,11 +83,15 @@ closeIcon.addEventListener("click", closeNoteBox);
 document.addEventListener("keydown" ,closeByEscape);
 addBtn.addEventListener("click", addNotes);
 
-var addBtn = document.getElementById("editBtn");
-var textArea = document.querySelector(".noteTextArea")
+var editBtn = document.querySelectorAll(".editBtn");
+var textArea = document.querySelectorAll(".noteTextArea");
 
-function editNoteFunction(){
-    textArea.removeAttribute("disabled")
+
+for (var j=0; j<editBtn.length; j++){
+    editBtn[j].addEventListener("click", editNote)
 }
 
-addBtn.addEventListener("click",editNoteFunction)
+function editNote(){
+    for (var a=0; a<textArea.length; a++){
+    textArea[a].removeAttribute("disabled");
+} }
