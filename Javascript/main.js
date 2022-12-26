@@ -10,7 +10,6 @@ var noteDetails = document.querySelector(".noteDetails");
 var displayData = document.getElementById("displayData");
 var notes;
 
-
 function showNoteBox(){
     showNote.classList.remove("d-none");
     showOverlay.classList.remove("d-none");
@@ -47,7 +46,8 @@ for(var i=0; i<notes.length; i++){
             <a class="addBtn btn my-1 text-center">Remove Note</a>
     </div>
     `;
-}
+} 
+
 function addNotes (){
     var note = {
         title : noteTitle.value,
@@ -84,14 +84,33 @@ document.addEventListener("keydown" ,closeByEscape);
 addBtn.addEventListener("click", addNotes);
 
 var editBtn = document.querySelectorAll(".editBtn");
-var textArea = document.querySelectorAll(".noteTextArea");
-
 
 for (var j=0; j<editBtn.length; j++){
     editBtn[j].addEventListener("click", editNote)
 }
-
 function editNote(){
-    for (var a=0; a<textArea.length; a++){
-    textArea[a].removeAttribute("disabled");
-} }
+   
+    var div = this.parentElement;
+    // div.style.display = "none";
+    var textarea = div.querySelector(".noteTextArea");
+    var editbtn2 =div.querySelector(".editBtn");
+    var noteHeader2 =div.querySelector("#noteHeader");
+    // console.log(div.querySelector(".noteTextArea"));
+    console.log(noteHeader2.textContent);
+    editbtn2.textContent = "Save Note";
+    textarea.removeAttribute("disabled");
+    editbtn2.addEventListener("click" ,function(){
+        editbtn2.textContent = "Edit Note";
+        textarea.setAttribute("disabled","");
+        // var item =  JSON.parse(localStorage.getItem('itemKey'));
+        // localStorage.setItem('notes', JSON.stringify(textarea.value));
+       var item =  JSON.parse(localStorage.getItem('notes'));
+      for( var i =0 ; i<item.length;i++){
+        if(item[i].title == noteHeader2.textContent){
+            item[i].body = textarea.value;
+        }
+     
+      }
+   
+    });
+} 
