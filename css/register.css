@@ -21,6 +21,7 @@ h2 {
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
+    border: none;
 }
 
 
@@ -67,6 +68,16 @@ h2 {
 
 .emailAlert {
     color: red;
+}
+
+.passAlert {
+    color: red;
+}
+
+#allData {
+    font-size: 20px !important;
+    font-style: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 @keyframes fadeIn {

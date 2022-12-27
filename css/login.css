@@ -20,6 +20,7 @@ h2 {
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
+    border: none;
 }
 
 .form-control:focus {
@@ -47,7 +48,7 @@ btn-primary {
 }
 .register {
     height: 90vh;
-    background-color: #0f0110;
+    background-color:#1b021d;
     color: white;
 }
 
@@ -59,15 +60,26 @@ btn-primary {
 
 .userAlert {
     color: red;
+    font-size: 18px !important;
+
 }
 
-.emailAlert {
-    color: red;
-}
 .registerlink{
-    color: #792483 !important;
- 
- }
+    color: #7f38b1 !important;
+    text-decoration: none;   
+}
+
+.registerlink:hover {
+    color: white !important;
+}
+
+#allData {
+    font-size: 20px !important;
+    font-style: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;

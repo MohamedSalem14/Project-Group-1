@@ -48,7 +48,6 @@ for(var i=0; i<notes.length; i++){
             <a class="editBtn addBtn btn mb-1 text-center"  onclick= "editNote(${i})">Edit Note</a>
             <a class="addBtn btn mb-1 my-1 text-center" onclick ="saveNote(${i})" id= "savebtn" >Save Note</a>
             <a class="addBtn btn mb-3 text-center" onclick ="deleteNote(${i})">Remove Note</a>
-           
     </div>
     `;
 } 
@@ -71,7 +70,7 @@ function addNotes (){
                 <textarea disabled class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
             </div>
             <a class="editBtn addBtn btn mb-1 text-center"onclick= "editNote(${i})">Edit Note</a>
-            <a class="addBtn btn my-1 mb-1text-center"onclick ="saveNote(${i})" id= "savebtn">Save Note</a>
+            <a class="addBtn btn my-1 mb-1 text-center"onclick ="saveNote(${i})" id= "savebtn">Save Note</a>
             <a class="addBtn btn mb-3 text-center"onclick ="deleteNote(${i})">Remove Note</a>
         </div>
         `;
