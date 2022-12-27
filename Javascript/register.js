@@ -1,4 +1,6 @@
 let signUpBtn = document.getElementById("signUpBtn");
+let userNameAlert = document.getElementById("userNameAlert");
+let emailAlert = document.getElementById("emailAlert");
 let users ;
 
 if(localStorage.getItem("allUsers") == null ){
@@ -24,7 +26,12 @@ function createNewAccount(){
         localStorage.setItem("allUsers" , JSON.stringify(users));
         location.href = "login.html";
 
-} }
+} else if (userName === "" && userEmail !== "" ){
+    userNameAlert.classList.remove("d-none");
+} else if(userName !== "" && userEmail === "" ){
+    emailAlert.classList.remove("d-none");
+}
+}
 
 console.log(users)
 
