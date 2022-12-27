@@ -17,7 +17,12 @@ h2 {
     background-color: rgba(128, 128, 128, 0.174);
     border-color: #7f38b1;
     color: white;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
 }
+
 
 .form-control:focus {
     box-shadow: 0 0 0 0.2rem #7f38b1;
