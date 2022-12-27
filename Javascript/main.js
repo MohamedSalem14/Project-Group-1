@@ -35,7 +35,7 @@ if(localStorage.getItem("notes") == null ){
 var noteCards = "";
 for(var i=0; i<notes.length; i++){
     noteCards += `
-    <div class="col-10 noteCards my-3 rounded">
+    <div class="col-10 noteCards my-3 rounded" id= "notes">
             <div class="d-flex justify-content-between">
                 <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
             </div>
@@ -60,7 +60,7 @@ function addNotes (){
     var noteCards = "";
     for(var i=0; i<notes.length; i++){
         noteCards += `
-        <div class="col-10 noteCards my-3 rounded">
+        <div class="col-10 noteCards my-3 rounded" id= "notes">
             <div class="d-flex justify-content-between">
                 <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
             </div>
@@ -89,6 +89,7 @@ addBtn.addEventListener("click", addNotes);
 var editBtn = document.querySelectorAll(".editBtn");
  var textarea = document.querySelectorAll(".noteTextArea");
  var titleinput = document.querySelectorAll("#noteHeader");
+ var fullnote = document.querySelectorAll("#notes");
 function editNote(index){ 
 textarea[index].removeAttribute("disabled"); 
 }
@@ -103,7 +104,10 @@ function saveNote(index){
 }
 function deleteNote(index){
     var item =  JSON.parse(localStorage.getItem('notes'));
-    console.log(item[index]);
-    localStorage.removeItem(item);
-    console.log(item);
+    // console.log(notes);
+    // console.log(fullnote[index]);
+    fullnote[index].style.display ='none';
+    notes.pop(index);
+    localStorage.setItem("notes" , JSON.stringify(notes));
+    // console.log(notes);
 }
