@@ -10,6 +10,9 @@ var noteDetails = document.querySelector(".noteDetails");
 var displayData = document.getElementById("displayData");
 var notes;
 
+let UserName = document.getElementById("UserName");
+UserName.textContent = localStorage.getItem("userName");
+
 function showNoteBox(){
     showNote.classList.remove("d-none");
     showOverlay.classList.remove("d-none");
