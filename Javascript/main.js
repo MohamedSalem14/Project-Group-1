@@ -42,8 +42,10 @@ for(var i=0; i<notes.length; i++){
             <div class="d-flex justify-content-between mx-2">
                 <textarea disabled class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
             </div>
-            <a class="editBtn addBtn btn mb-1 text-center ">Edit Note</a>
-            <a class="addBtn btn my-1 text-center">Remove Note</a>
+            <a class="editBtn addBtn btn mb-1 text-center"  onclick= "editNote(${i})">Edit Note</a>
+            <a class="addBtn btn mb-1 my-1 text-center" onclick ="saveNote(${i})" id= "savebtn" >Save Note</a>
+            <a class="addBtn btn mb-3 text-center" onclick ="deleteNote(${i})">Remove Note</a>
+           
     </div>
     `;
 } 
@@ -65,8 +67,9 @@ function addNotes (){
             <div class="d-flex justify-content-between mx-2">
                 <textarea disabled class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
             </div>
-            <a class="editBtn addBtn btn mb-1 text-center ">Edit Note</a>
-            <a class="addBtn btn my-1 text-center">Remove Note</a>
+            <a class="editBtn addBtn btn mb-1 text-center"onclick= "editNote(${i})">Edit Note</a>
+            <a class="addBtn btn my-1 mb-1text-center"onclick ="saveNote(${i})" id= "savebtn">Save Note</a>
+            <a class="addBtn btn mb-3 text-center"onclick ="deleteNote(${i})">Remove Note</a>
         </div>
         `;
     }
@@ -84,33 +87,23 @@ document.addEventListener("keydown" ,closeByEscape);
 addBtn.addEventListener("click", addNotes);
 
 var editBtn = document.querySelectorAll(".editBtn");
-
-for (var j=0; j<editBtn.length; j++){
-    editBtn[j].addEventListener("click", editNote)
+ var textarea = document.querySelectorAll(".noteTextArea");
+ var titleinput = document.querySelectorAll("#noteHeader");
+function editNote(index){ 
+textarea[index].removeAttribute("disabled"); 
 }
-function editNote(){
-   
-    var div = this.parentElement;
-    // div.style.display = "none";
-    var textarea = div.querySelector(".noteTextArea");
-    var editbtn2 =div.querySelector(".editBtn");
-    var noteHeader2 =div.querySelector("#noteHeader");
-    // console.log(div.querySelector(".noteTextArea"));
-    console.log(noteHeader2.textContent);
-    editbtn2.textContent = "Save Note";
-    textarea.removeAttribute("disabled");
-    editbtn2.addEventListener("click" ,function(){
-        editbtn2.textContent = "Edit Note";
-        textarea.setAttribute("disabled","");
-        // var item =  JSON.parse(localStorage.getItem('itemKey'));
-        // localStorage.setItem('notes', JSON.stringify(textarea.value));
-       var item =  JSON.parse(localStorage.getItem('notes'));
-      for( var i =0 ; i<item.length;i++){
-        if(item[i].title == noteHeader2.textContent){
-            item[i].body = textarea.value;
-        }
-     
-      }
-   
-    });
-} 
+function saveNote(index){ 
+     textarea[index].setAttribute("disabled","");
+         var item =  JSON.parse(localStorage.getItem('notes'));
+      
+            item[index].body = textarea[index].value;
+             localStorage.setItem("notes" , JSON.stringify(item));
+            console.log(item);
+
+}
+function deleteNote(index){
+    var item =  JSON.parse(localStorage.getItem('notes'));
+    console.log(item[index]);
+    localStorage.removeItem(item);
+    console.log(item);
+}
