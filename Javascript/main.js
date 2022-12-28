@@ -36,26 +36,33 @@ if(localStorage.getItem("notes") == null ){
     notes = JSON.parse(localStorage.getItem("notes"));
 }
 var noteCards = "";
+
 for(var i=0; i<notes.length; i++){
-    noteCards += `
-    <div class="col-10 noteCards my-3 rounded" id= "notes">
-            <div class="d-flex justify-content-between">
-                <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
-            </div>
-            <div class="d-flex justify-content-between mx-2">
-                <textarea disabled class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
-            </div>
-            <a class="editBtn addBtn btn mb-1 text-center"  onclick= "editNote(${i})">Edit Note</a>
-            <a class="addBtn btn mb-1 my-1 text-center" onclick ="saveNote(${i})" id= "savebtn" >Save Note</a>
-            <a class="addBtn btn mb-3 text-center" onclick ="deleteNote(${i})">Remove Note</a>
-    </div>
-    `;
+   
+    if(notes[i].UserName === UserName.textContent){
+
+        noteCards += `
+        <div class="col-10 noteCards my-3 rounded" id= "notes">
+                <div class="d-flex justify-content-between">
+                    <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
+                </div>
+                <div class="d-flex justify-content-between mx-2">
+                    <textarea disabled class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
+                </div>
+                <a class="editBtn addBtn btn mb-1 text-center"  onclick= "editNote(${i})">Edit Note</a>
+                <a class="addBtn btn mb-1 my-1 text-center" onclick ="saveNote(${i})" id= "savebtn" >Save Note</a>
+                <a class="addBtn btn mb-3 text-center" onclick ="deleteNote(${i})">Remove Note</a>
+        </div>
+        `;   
+    }
+
 } 
 
 function addNotes (){
     var note = {
         title : noteTitle.value,
         body : noteDetails.value,
+        UserName: UserName.textContent
     }
     notes.push(note);
     localStorage.setItem("notes" , JSON.stringify(notes));
