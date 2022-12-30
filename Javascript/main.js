@@ -42,7 +42,7 @@ for(var i=0; i<notes.length; i++){
         noteCards += `
         <div class="col-10 noteCards my-3 rounded" id= "notes">
                 <div class="d-flex justify-content-between">
-                    <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
+                    <h3 id="noteHeader" class="ms-3 mt-2 ">${notes[i].title}</h3>
                     <div class="dropdownIcon dropdown mx-3 mt-2" onclick= "showHiddenNote(${i})"><i class="fas fa-caret-down"></i></div>
                     <div class="upIcon dropdown mx-3 mt-2 d-none" onclick= "hideNote(${i})"><i class="fas fa-caret-up"></i></i></div>
                 </div>

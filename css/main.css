@@ -29,9 +29,8 @@ body{
 
 #nav .container .userName{
     text-decoration: none;
-    font-size: 25px;
     font-family: 'Sevillana', cursive;
-    font-size: 45px;
+    font-size: 40px;
     color:#181817!important;
 
 }
@@ -39,7 +38,7 @@ body{
 #nav .container .addNotes{
     cursor: pointer;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 21px;
     color:#181817!important;
 }
 
@@ -156,7 +155,8 @@ body{
 }
 
 #noteHeader{
-    color: black
+    color: black;
+    font-family: 'Sevillana', cursive;
 }
 
 .dropdown{
