@@ -1,14 +1,14 @@
-var createNote = document.getElementById("createNote");
-var showNote = document.getElementById("showNote");
-var showOverlay = document.querySelector(".overLay");
-var closeIcon = document.querySelector(".closeBox");
-var addBtn = document.querySelector(".addBtn");
-var noteHeader = document.getElementById("noteHeader");
-var noteBody = document.getElementById("noteBody");
-var noteTitle = document.querySelector(".noteTitle");
-var noteDetails = document.querySelector(".noteDetails");
-var displayData = document.getElementById("displayData");
-var notes;
+let createNote = document.getElementById("createNote");
+let showNote = document.getElementById("showNote");
+let showOverlay = document.querySelector(".overLay");
+let closeIcon = document.querySelector(".closeBox");
+let addBtn = document.querySelector(".addBtn");
+let noteHeader = document.getElementById("noteHeader");
+let noteBody = document.getElementById("noteBody");
+let noteTitle = document.querySelector(".noteTitle");
+let noteDetails = document.querySelector(".noteDetails");
+let displayData = document.getElementById("displayData");
+let notes;
 
 let UserName = document.getElementById("UserName");
 UserName.textContent = localStorage.getItem("userName");
@@ -44,14 +44,20 @@ for(var i=0; i<notes.length; i++){
         noteCards += `
         <div class="col-10 noteCards my-3 rounded" id= "notes">
                 <div class="d-flex justify-content-between">
-                    <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
+                    <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${[i+1]}- ${notes[i].title}</h3>
+                    <div class="dropdownIcon dropdown mx-3 mt-2" onclick= "showHiddenNote(${i})"><i class="fas fa-caret-down"></i></div>
+                    <div class="upIcon dropdown mx-3 mt-2 d-none" onclick= "hideNote(${i})"><i class="fas fa-caret-up"></i></i></div>
                 </div>
-                <div class="d-flex justify-content-between mx-2">
+                <div class="hiddenNoteBody mx-2 d-none">
+                    <div>
                     <textarea disabled class="noteTextArea" id="noteBody" rows="6">${notes[i].body}</textarea>
+                    </div>
+                    <div class="d-flex ">
+                    <a class="editBtn addBtn btn mb-1 text-center"  onclick= "editNote(${i})">Edit Note</a>
+                    <a class="addBtn btn mb-1 my-1 text-center" onclick ="saveNote(${i})" id= "savebtn" >Save Note</a>
+                    <a class="addBtn btn mb- text-center" onclick ="deleteNote(${i})">Remove Note</a>
+                    </div>
                 </div>
-                <a class="editBtn addBtn btn mb-1 text-center"  onclick= "editNote(${i})">Edit Note</a>
-                <a class="addBtn btn mb-1 my-1 text-center" onclick ="saveNote(${i})" id= "savebtn" >Save Note</a>
-                <a class="addBtn btn mb-3 text-center" onclick ="deleteNote(${i})">Remove Note</a>
         </div>
         `;   
     }
@@ -99,6 +105,7 @@ var editBtn = document.querySelectorAll(".editBtn");
  var textarea = document.querySelectorAll(".noteTextArea");
  var titleinput = document.querySelectorAll("#noteHeader");
  var fullnote = document.querySelectorAll("#notes");
+
 function editNote(index){ 
 textarea[index].removeAttribute("disabled"); 
 }
@@ -119,4 +126,21 @@ function deleteNote(index){
     notes.pop(index);
     localStorage.setItem("notes" , JSON.stringify(notes));
     // console.log(notes);
+}
+
+let dropdownIcon = document.querySelectorAll(".dropdownIcon")
+let hiddenNoteBody = document.querySelectorAll(".hiddenNoteBody")
+let upIcon = document.querySelectorAll(".upIcon")
+
+
+function showHiddenNote(index){
+    dropdownIcon[index].classList.add("d-none");
+    hiddenNoteBody[index].classList.remove("d-none");
+    upIcon[index].classList.remove("d-none");
+}
+
+function hideNote(index){
+    hiddenNoteBody[index].classList.add("d-none");
+    upIcon[index].classList.add("d-none");
+    dropdownIcon[index].classList.remove("d-none");
 }
