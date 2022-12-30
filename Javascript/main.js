@@ -38,13 +38,11 @@ if(localStorage.getItem("notes") == null ){
 var noteCards = "";
 
 for(var i=0; i<notes.length; i++){
-   
     if(notes[i].UserName === UserName.textContent){
-
         noteCards += `
         <div class="col-10 noteCards my-3 rounded" id= "notes">
                 <div class="d-flex justify-content-between">
-                    <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${[i+1]}- ${notes[i].title}</h3>
+                    <h3 id="noteHeader" class="ms-3 mt-2 text-uppercase">${notes[i].title}</h3>
                     <div class="dropdownIcon dropdown mx-3 mt-2" onclick= "showHiddenNote(${i})"><i class="fas fa-caret-down"></i></div>
                     <div class="upIcon dropdown mx-3 mt-2 d-none" onclick= "hideNote(${i})"><i class="fas fa-caret-up"></i></i></div>
                 </div>
@@ -60,9 +58,7 @@ for(var i=0; i<notes.length; i++){
                 </div>
         </div>
         `;   
-    }
-
-} 
+    } } 
 
 function addNotes (){
     var note = {
@@ -102,30 +98,25 @@ document.addEventListener("keydown" ,closeByEscape);
 addBtn.addEventListener("click", addNotes);
 
 var editBtn = document.querySelectorAll(".editBtn");
- var textarea = document.querySelectorAll(".noteTextArea");
- var titleinput = document.querySelectorAll("#noteHeader");
- var fullnote = document.querySelectorAll("#notes");
+var textarea = document.querySelectorAll(".noteTextArea");
+var titleinput = document.querySelectorAll("#noteHeader");
+var fullnote = document.querySelectorAll("#notes");
 
 function editNote(index){ 
 textarea[index].removeAttribute("disabled"); 
 }
 function saveNote(index){ 
-     textarea[index].setAttribute("disabled","");
-         var item =  JSON.parse(localStorage.getItem('notes'));
-      
-            item[index].body = textarea[index].value;
-             localStorage.setItem("notes" , JSON.stringify(item));
-            console.log(item);
-
+    textarea[index].setAttribute("disabled","");
+    var item =  JSON.parse(localStorage.getItem('notes'));
+    item[index].body = textarea[index].value;
+    localStorage.setItem("notes" , JSON.stringify(item));
 }
+
 function deleteNote(index){
     var item =  JSON.parse(localStorage.getItem('notes'));
-    // console.log(notes);
-    // console.log(fullnote[index]);
     fullnote[index].style.display ='none';
     notes.pop(index);
     localStorage.setItem("notes" , JSON.stringify(notes));
-    // console.log(notes);
 }
 
 let dropdownIcon = document.querySelectorAll(".dropdownIcon")
